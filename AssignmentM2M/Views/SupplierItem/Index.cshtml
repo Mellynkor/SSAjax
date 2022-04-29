@@ -1,0 +1,50 @@
+﻿@model IEnumerable<AssignmentM2M.Models.Entities.SupplierItem>
+<div class="jumbotron text-center">
+  <h1>Supplier Items</h1>
+</div>
+
+
+<p>
+ <a class="btn btn-primary" asp-action="DellFilter">Filter Items Dell carries</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                SupplierId
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemId)
+            </th>
+            <th>
+                ItemId
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SupplierId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ItemId)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

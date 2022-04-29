@@ -1,0 +1,22 @@
+﻿@using AssignmentM2M.Models.Entities
+@model SupplierItem
+
+@{
+    var supplier = Model!.Supplier;
+    var item = Model!.Item;
+    ViewData["Title"] = "Please confirm removing item";
+    var question = $"Are you sure you want to remove {item!.Name} " +
+        $"from {supplier!.SupplierCode} {supplier!.Name}?";
+}
+<h2>@ViewData["Title"]</h2>
+<h3>@question</h3>
+<div>
+    <form asp-action="Remove">
+        <input type="hidden" name="id" value="@Model!.Id" />
+        <input type="hidden" name="code" value="@supplier!.SupplierCode"/>
+        <input type="submit" value="Yes, Remove Item" class="btn btn-danger" /> |
+        <a asp-action="Details" asp-controller="Supplier" asp-route-id="@supplier!.SupplierCode">
+            Back to Supplier Details
+        </a>
+    </form>
+</div>

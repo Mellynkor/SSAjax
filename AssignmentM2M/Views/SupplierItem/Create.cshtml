@@ -1,0 +1,19 @@
+﻿@using AssignmentM2M.Models.Entities.ViewModels
+@model SupplierItemVM
+
+<h3>
+    Are you sure you want to add the item @Model!.Item.Name to @Model!.Supplier!.Name?
+</h3>
+
+
+
+
+<form asp-action="Create">
+    <input type="hidden" name="SupplierCode" value="@Model.Supplier.SupplierCode" />
+    <input type="hidden" name="itemId" value="@Model.Item.Id" />
+    <input type="submit" value="Register" class="btn btn-danger" /> |
+    <a asp-action="SupplierRegister" asp-controller="Item"
+       asp-route-id="@Model!.Supplier!.SupplierCode">Don't Add</a>
+</form>
+
+

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<AssignmentM2M.Models.Entities.Supplier>
+
+
+@{
+    ViewData["Title"] = ViewData["Message"] ;
+}
+
+<h1>@ViewData["Message"]</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

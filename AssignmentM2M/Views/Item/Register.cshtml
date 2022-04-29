@@ -1,0 +1,49 @@
+﻿@using AssignmentM2M.Models.Entities
+@model IEnumerable<Item>
+@{
+    var store = (Store?)ViewData["Store"];
+    ViewData["Title"] = 
+        $"Add an item to {store!.StoreCode} {store!.Name}";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="create" asp-controller="StoreItem"
+                            asp-route-id="@store!.StoreCode" 
+                            asp-route-itemId="@item!.Id">Add Item</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-action="Details" asp-controller="Store" asp-route-id="@store.StoreCode">Back to Store Details</a>
+</div>

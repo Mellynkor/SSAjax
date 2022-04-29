@@ -1,0 +1,20 @@
+﻿@using AssignmentM2M.Models.Entities.ViewModels
+@model StoreItemVM
+
+<h3>
+    Are you sure you want to add the item @Model!.Item.Name  to the @Model!.Store!.Name at @Model!.Store!.Address?
+</h3>
+
+
+<form asp-action="Create" id="formCreateStoreItem">
+    <input type="hidden" name="StoreCode" value="@Model.Store.StoreCode" />
+    <input type="hidden" name="itemId" value="@Model.Item.Id" />
+    <input type="submit" value="Register" class="btn btn-danger" /> |
+    <a asp-action="Register" asp-controller="Item"
+       asp-route-id="@Model!.Store!.StoreCode">Don't Add</a>
+</form>
+
+
+@section Scripts{
+    <script defer src="~/js/storeItem/storeItemCreate.js"></script>
+}

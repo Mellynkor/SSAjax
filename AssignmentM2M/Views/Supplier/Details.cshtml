@@ -1,0 +1,73 @@
+﻿@model AssignmentM2M.Models.Entities.Supplier
+
+<div>
+    <h4>Supplier</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SupplierCode)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SupplierCode)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-controller="Supplier" asp-route-id="@Model!.SupplierCode">Edit Supplier</a> |
+    <a asp-action="SupplierRegister" asp-controller="Item" asp-route-id="@Model!.SupplierCode">Add Item</a> |
+    <a asp-action="Index">Back to Supplier List</a>
+</div>
+<h3>Supplier Items</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Item ID
+            </th>
+            <th>
+                Item Name
+            </th>
+            <th>
+                Item Price
+            </th>
+            <th>
+                Operations
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model.SupplierItems)
+            {
+                <tr>
+                    <td>
+                        @item.Id
+                    </td>
+                    <td>
+                        @item.Item!.Name
+                    </td>
+                    <td>
+                        @item.Price
+                    </td>
+                    <td>  
+                        <a asp-action="Edit" asp-controller="SupplierItem"
+                            asp-route-id="@item!.Id">
+                            Edit Price
+                        </a> |
+                        <a asp-action="Remove" asp-controller="SupplierItem"
+                            asp-route-code="@Model!.SupplierCode" asp-route-Id="@item.Id">
+                            Remove Item
+                        </a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

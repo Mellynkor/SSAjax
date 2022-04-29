@@ -1,0 +1,35 @@
+﻿@using AssignmentM2M.Models.Entities
+@model StoreItem
+
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Edit</h1>
+
+<h4>Store</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" id="formUpdate">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" name="id" value="@Model!.Id"/>
+        <input type="hidden" name="StoreCode" value="@Model!.StoreId" />
+            <div class="form-group">
+                <label asp-for="@Model!.Price" class="control-label"></label>
+                <input asp-for="@Model!.Price" class="form-control" />
+                <span asp-validation-for="@Model!.Price" class="text-danger"></span>
+            </div>
+                <input type="submit" value="Save" class="btn btn-primary" />
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts{
+    <script defer src="~/js/storeItem/storeItemUpdate.js"></script>
+}

@@ -1,0 +1,29 @@
+﻿<div class="jumbotron text-center">
+  <h1>Store Items</h1>
+</div>
+
+
+<p>
+ <a class="btn btn-primary" asp-action="WalmartFilter">Filter Items Walmart carries</a> |  <a class="btn btn-primary" asp-action="FindMaxPrice">Find most expensive item</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Store Name
+            </th>
+            <th>
+                Store Code
+            </th>
+            <th>
+                Item Name
+            </th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+@section Scripts{
+    <script defer src="~/js/storeItem/storeItemIndex.js"></script>
+}
